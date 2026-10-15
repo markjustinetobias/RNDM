@@ -1,0 +1,315 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Space+Mono:wght@400;700&display=swap');
+
+:root {
+    --body: #292d2f;
+    --body-edge: #454b4d;
+    --key: #5b6264;
+    --key-edge: #3d4345;
+    --lcd: #a9b69a;
+    --lcd-ink: #293b2a;
+    --orange: #d88b45;
+    --cream: #d4c7ae;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 24px;
+    color: #f4efe5;
+    background:
+        radial-gradient(ellipse at top, #45494a 0%, #242728 62%, #17191a 100%);
+    font-family: "Space Mono", "Courier New", monospace;
+}
+
+.page {
+    width: 100%;
+    max-width: 360px;
+}
+
+.calculator {
+    padding: 22px 20px 16px;
+    border: 2px solid #505658;
+    border-radius: 22px;
+    background: linear-gradient(145deg, #34393b, var(--body) 55%, #222627);
+    box-shadow:
+        0 18px 0 #171a1b,
+        0 26px 38px #0008,
+        inset 2px 2px 2px #ffffff12,
+        inset -3px -4px 8px #0005;
+}
+
+.brand {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin: 0 2px 18px;
+    color: var(--cream);
+    letter-spacing: 1.5px;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.model {
+    color: #8d9694;
+    font-size: 9px;
+    letter-spacing: 1px;
+}
+
+.screen-wrap {
+    padding: 10px 12px 12px;
+    margin-bottom: 18px;
+    border-radius: 7px;
+    border: 2px solid #1b211d;
+    background: #7e8b73;
+    box-shadow: inset 0 3px 8px #0005, 0 1px 0 #ffffff14;
+}
+
+.screen-label {
+    margin-bottom: 6px;
+    color: #3e503d;
+    font: 10px "Share Tech Mono", monospace;
+    letter-spacing: 1.5px;
+}
+
+.screen {
+    min-height: 48px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    color: var(--lcd-ink);
+    font: clamp(25px, 8vw, 35px) "Share Tech Mono", "Courier New", monospace;
+    letter-spacing: 1px;
+    white-space: nowrap;
+    text-shadow: 0 1px #e3ebd6a0;
+}
+
+.keys {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.key {
+    min-height: 57px;
+    border: 1px solid var(--key-edge);
+    border-radius: 9px;
+    color: #f5f2e9;
+    background: linear-gradient(145deg, #697173, var(--key) 60%, #505658);
+    box-shadow: 0 4px 0 #1b1e1f, inset 0 1px 0 #ffffff20;
+    font: 700 19px "Space Mono", "Courier New", monospace;
+    cursor: pointer;
+    transition: transform .08s ease, box-shadow .08s ease, filter .08s ease;
+}
+
+.key:hover {
+    filter: brightness(1.12);
+}
+
+.key:active {
+    transform: translateY(3px);
+    box-shadow: 0 1px 0 #1b1e1f, inset 0 1px 3px #0004;
+}
+
+.key-function {
+    color: #282b2b;
+    background: linear-gradient(145deg, #d5c7ae, #b8a98d);
+    border-color: #8f8169;
+    font-size: 13px;
+}
+
+.key-operator {
+    background: linear-gradient(145deg, #e7a15c, var(--orange) 65%, #bb7135);
+    border-color: #a9632b;
+    font-size: 24px;
+}
+
+.key-equals {
+    color: #202a21;
+    background: linear-gradient(145deg, #c1cfad, #9eaf8b);
+    border-color: #778969;
+    font-size: 24px;
+}
+
+.key-wide {
+    grid-column: span 2;
+}
+
+.calculator-footer {
+    margin-top: 20px;
+    text-align: center;
+    color: #8d9694;
+    font-size: 9px;
+    letter-spacing: 2px;
+}
+
+.page-note {
+    margin: 35px 0 0;
+    text-align: center;
+    color: #a3aaa6;
+    font-size: 11px;
+    letter-spacing: .2px;
+}
+
+@media (max-width: 380px) {
+    .calculator {
+        padding: 18px 15px 14px;
+    }
+
+    .keys {
+        gap: 8px;
+    }
+
+    .key {
+        min-height: 53px;
+    }
+}
+
+
+/* Retro fake advertisement */
+.ad-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.65);
+}
+
+.ad-window {
+    width: 100%;
+    max-width: 340px;
+    background: #fff8c9;
+    border: 4px ridge #dedede;
+    box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.4);
+    font-family: "Courier New", monospace;
+    text-align: center;
+}
+
+.ad-titlebar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px;
+    color: white;
+    background: #000080;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.ad-close {
+    width: 25px;
+    height: 23px;
+    border: 2px outset white;
+    background: #ddd;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.ad-content {
+    padding: 18px 14px;
+    border: 3px dotted #ff0000;
+    margin: 8px;
+}
+
+.ad-flash {
+    color: #e00000;
+    font-size: 13px;
+    font-weight: 900;
+    animation: adBlink 0.7s steps(2, start) infinite;
+}
+
+.ad-content h2 {
+    margin: 12px 0;
+    color: #000080;
+    font-size: 30px;
+    text-shadow: 2px 2px #ffcc00;
+}
+
+.ad-tagline {
+    color: #d00000;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.ad-price {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin: 18px 0;
+}
+
+.ad-price span {
+    color: #777;
+    text-decoration: line-through;
+}
+
+.ad-price strong {
+    color: #d00000;
+    font-size: 24px;
+}
+
+.ad-small {
+    font-size: 10px;
+}
+
+.ad-buy {
+    margin-top: 10px;
+    padding: 12px 20px;
+    border: 4px outset #ffff66;
+    background: #ffcc00;
+    color: #a00000;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 900;
+    cursor: pointer;
+}
+
+.ad-buy:hover {
+    background: #ff6600;
+    color: white;
+}
+
+@keyframes adBlink {
+    to {
+        visibility: hidden;
+    }
+}
+
+/* Hide the ad when closed */
+.ad-overlay.ad-hidden {
+    display: none;
+}
+
+
+.ad-image {
+    display: block;
+    width: 100%;
+    max-height: 180px;
+    object-fit: contain;
+    margin: 12px auto;
+    border: 3px ridge #aaa;
+    background: white;
+}
+
+/* Hide the ad until its random appearance time */
+.ad-overlay {
+    display: none;
+}
+
+.ad-overlay.ad-show {
+    display: flex;
+}
+
+.ad-overlay.ad-hidden {
+    display: none;
+}
